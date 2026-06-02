@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enquête sur les Pratiques de Gestion des Déchets à Abidjan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="tel"], select, textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .radio-group, .checkbox-group {
+            margin: 5px 0;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Enquête sur les Pratiques de Gestion des Déchets à Abidjan</h1>
+    <p>Ce formulaire a pour but de recueillir des informations sur les pratiques de gestion des déchets des habitants d'Abidjan. Vos réponses nous aideront à mieux comprendre les défis et à proposer des solutions adaptées.</p>
+
+    <form action="/submit" method="post">
+        <h2>Informations Personnelles</h2>
+        <div class="form-group">
+            <label for="nom">Nom et Prénoms :</label>
+            <input type="text" id="nom" name="nom" required>
+        </div>
+        <div class="form-group">
+            <label for="age">Âge :</label>
+            <select id="age" name="age" required>
+                <option value="">Sélectionnez votre âge</option>
+                <option value="18-25">18-25</option>
+                <option value="26-35">26-35</option>
+                <option value="36-45">36-45</option>
+                <option value="46-55">46-55</option>
+                <option value="56+">56+</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Genre :</label>
+            <div class="radio-group">
+                <input type="radio" id="homme" name="genre" value="Homme" required>
+                <label for="homme">Homme</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="femme" name="genre" value="Femme">
+                <label for="femme">Femme</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="autre" name="genre" value="Autre">
+                <label for="autre">Autre</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="adresse">Adresse :</label>
+            <input type="text" id="adresse" name="adresse" required>
+        </div>
+        <div class="form-group">
+            <label for="telephone">Numéro de téléphone :</label>
+            <input type="tel" id="telephone" name="telephone" required>
+        </div>
+
+        <h2>Pratiques de Gestion des Déchets</h2>
+        <div class="form-group">
+            <label>Comment gérez-vous vos déchets ménagers ?</label>
+            <div class="radio-group">
+                <input type="radio" id="poubelles" name="gestion_dechets" value="Je les jette dans les poubelles publiques." required>
+                <label for="poubelles">Je les jette dans les poubelles publiques.</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="sacs_plastiques" name="gestion_dechets" value="Je les jette dans des sacs plastiques et les laisse à la rue.">
+                <label for="sacs_plastiques">Je les jette dans des sacs plastiques et les laisse à la rue.</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="bruler" name="gestion_dechets" value="Je les jette dans des sacs plastiques et les brûle.">
+                <label for="bruler">Je les jette dans des sacs plastiques et les brûle.</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="enterre" name="gestion_dechets" value="Je les jette dans des sacs plastiques et les enterre.">
+                <label for="enterre">Je les jette dans des sacs plastiques et les enterre.</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="autre_gestion" name="gestion_dechets" value="Autre">
+                <label for="autre_gestion">Autre (préciser) :</label>
+                <input type="text" id="autre_gestion_text" name="autre_gestion_text">
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Utilisez-vous des sacs plastiques pour vos déchets ?</label>
+            <div class="radio-group">
+                <input type="radio" id="oui_sacs" name="sacs_plastiques" value="Oui" required>
+                <label for="oui_sacs">Oui</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="non_sacs" name="sacs_plastiques" value="Non">
+                <label for="non_sacs">Non</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="frequence_dechets">Combien de fois par semaine jetez-vous vos déchets ?</label>
+            <select id="frequence_dechets" name="frequence_dechets" required>
+                <option value="">Sélectionnez la fréquence</option>
+                <option value="1 fois">1 fois</option>
+                <option value="2 fois">2 fois</option>
+                <option value="3 fois">3 fois</option>
+                <option value="4 fois">4 fois</option>
+                <option value="5 fois">5 fois</option>
+                <option value="6 fois">6 fois</option>
+                <option value="7 fois">7 fois</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Où jetez-vous vos déchets ?</label>
+            <div class="checkbox-group">
+                <input type="checkbox" id="poubelles_publiques" name="lieu_dechets" value="Dans les poubelles publiques">
+                <label for="poubelles_publiques">Dans les poubelles publiques</label>
+            </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="sacs_rue" name="lieu_dechets" value="Dans les sacs plastiques à la rue">
+                <label for="sacs_rue">Dans les sacs plastiques à la rue</label>
+            </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="bruler_rue" name="lieu_dechets" value="Dans les sacs plastiques que je brûle">
+                <label for="bruler_rue">Dans les sacs plastiques que je brûle</label>
+            </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="enterre_rue" name="lieu_dechets" value="Dans les sacs plastiques que j'enterre">
+                <label for="enterre_rue">Dans les sacs plastiques que j'enterre</label>
+            </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="autre_lieu" name="lieu_dechets" value="Autres">
+                <label for="autre_lieu">Autres (préciser) :</label>
+                <input type="text" id="autre_lieu_text" name="autre_lieu_text">
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Avez-vous déjà participé à une campagne de sensibilisation sur la gestion des déchets ?</label>
+            <div class="radio-group">
+                <input type="radio" id="oui_sensibilisation" name="sensibilisation" value="Oui" required>
+                <label for="oui_sensibilisation">Oui</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="non_sensibilisation" name="sensibilisation" value="Non">
+                <label for="non_sensibilisation">Non</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Quelles sont les principales raisons pour lesquelles vous ne recycleriez pas vos déchets ?</label>
+            <div class="checkbox-group">
+                <input type="checkbox" id="ne_sait_pas" name="raisons_recyclage" value="Je ne sais pas comment recycler.">
+                <label for="ne_sait_pas">Je ne sais pas comment recycler.</label>
+            </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="pas_points_collecte" name="raisons_recyclage" value="Il n'y a pas de points de collecte de recyclage près de chez moi.">
+                <label for="pas_points_collecte">Il n'y a pas de points de collecte de recyclage près de chez moi.</label>
+            </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="pas_importance" name="raisons_recyclage" value="Je ne pense pas que cela fait une grande différence.">
+                <label for="pas_importance">Je ne pense pas que cela fait une grande différence.</label>
+            </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="autre_raison" name="raisons_recyclage" value="Autres">
+                <label for="autre_raison">Autres (préciser) :</label>
+                <input type="text" id="autre_raison_text" name="autre_raison_text">
+            </div>
+        </div>
+
+        <h2>Satisfaction et Suggestions</h2>
+        <div class="form-group">
+            <label for="satisfaction">Êtes-vous satisfait de la collecte des déchets dans votre quartier ?</label>
+            <select id="satisfaction" name="satisfaction" required>
+                <option value="">Sélectionnez votre niveau de satisfaction</option>
+                <option value="1">1 (Très insatisfait)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Très satisfait)</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="ameliorations">Quelles améliorations souhaitez-vous voir dans la gestion des déchets dans votre quartier ?</label>
+            <textarea id="ameliorations" name="ameliorations" rows="4" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="suggestions">Avez-vous des suggestions pour améliorer la gestion des déchets à Abidjan ?</label>
+            <textarea id="suggestions" name="suggestions" rows="4" required></textarea>
+        </div>
+
+        <h2>Consentement</h2>
+        <div class="form-group">
+            <input type="checkbox" id="consentement" name="consentement" required>
+            <label for="consentement">J'autorise l'utilisation de mes données pour le projet de gestion des déchets à Abidjan.</label>
+        </div>
+
+        <div class="form-group">
+            <button type="submit">Envoyer</button>
+            <button type="reset">Réinitialiser</button>
+        </div>
+    </form>
+</body>
+</html>
